@@ -5,27 +5,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
     <link rel="stylesheet" href="loginPageStyles.css">
 </head>
 
 <body>
-    <form>
-        <div class="logoDiv">
-            <img src="./Sources/index.png" alt="READ Advertising" class="logoPNG">
-        </div>
-        <div class="container">
-            <div class="inputDivs">
-                <input type="text" name="" placeholder="Enter Username" id="" class="inputHolders"><br>
+    <section class="loginSec">
+        <form class="loginForm">
+            <div class="logoDiv">
+                <img src="./Sources/index.png" alt="READ Advertising" class="logoPNG">
             </div>
-            <div class="inputDivs">
-                <input type="password" name="" placeholder="Password" id="" class="inputHolders"><br>
+            <div class="container">
+                <div class="inputDivs">
+                    <input type="text" name="" placeholder="Enter Username" id="" class="inputHolders" required><br>
+                </div>
+                <div class="inputDivs">
+                    <input type="password" name="" placeholder="Password" id="" class="inputHolders" required><br>
+                </div>
+                <div class="loginButtonDiv">
+                    <button type="submit" class="loginButton">Login</button>
+                </div>
             </div>
-            <div class="loginButtonDiv">
-                <button type="submit" class="loginButton">Login</button>
-            </div>
-        </div>
-    </form>
+        </form>
+    </section>
 </body>
 
 </html>

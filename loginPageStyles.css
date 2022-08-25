@@ -1,9 +1,26 @@
 :root {
     --readRed: #f1303b;
+    --backgroundGrey: #afafaf1a;
+}
+
+.loginSec {
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.loginForm {
+    height: 450px;
+    /* border: solid var(--readRed) 1px; */
+    padding: 25px;
+    border-radius: 1rem;
+    background-color: var(--backgroundGrey);
 }
 
 .logoDiv {
-    padding-top: 70px;
+    padding-top: 40px;
     padding-bottom: 80px;
     display: flex;
     align-items: center;
@@ -28,7 +45,8 @@
 }
 
 .loginButtonDiv {
-    padding-top: 5px;
+    padding-top: 15px;
+    padding-bottom: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,4 +72,10 @@
     border-radius: 10px;
     font-size: 18px;
     cursor: pointer;
+}
+
+@media screen and (min-width: 1300px) {
+    .loginSec {
+        height: 900px;
+    }
 }
