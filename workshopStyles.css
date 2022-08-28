@@ -1,0 +1,80 @@
+/* designs of sections */
+.logoSec {
+    height: 8vh;
+    margin-bottom: 5px;
+
+    border: solid 2px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar {
+    height: 4vh;
+    border: solid 2px black;
+    margin-bottom: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toDo {
+    height: 70vh;
+    border: solid 2px black;
+    margin-bottom: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.specialToDo {
+    height: 16vh;
+    border: solid 2px black;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* designs of childern divs of sections */
+.calendarDiv {
+    border: solid 2px red;
+    height: 2.5vh;
+    width: 94%;
+
+    font-size: 40px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toDoDiv {
+    border: solid 2px red;
+    height: 67.5vh;
+    width: 94%;
+
+    font-size: 40px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.specialToDoDiv {
+    border: solid 2px red;
+    height: 13.5vh;
+    width: 94%;
+
+    font-size: 40px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
