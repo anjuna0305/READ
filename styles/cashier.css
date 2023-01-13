@@ -1,5 +1,7 @@
 .container {
-    margin: 0px 70px;
+    justify-content: center;
+    max-width: 900px;
+    margin: auto;
 }
 
 
@@ -11,7 +13,9 @@
 
     background-color: #ffffff;
     border-radius: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
 }
 
 .login-container img {
@@ -51,4 +55,63 @@
     padding: 0px 10px;
 
     border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+form {
+    margin-top: 40px;
+}
+
+.to-do {
+    text-align: center;
+}
+
+.todo-heading {
+    margin-bottom: 36px;
+}
+
+.order-card {
+    background-color: #f9f9f9;
+    padding: 8px 0px 8px 15px;
+    margin: 12px 0px;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+}
+
+.card-t {
+    margin-top: 16px;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: left;
+}
+
+.card-d {
+    margin-top: 16px;
+    min-width: 42px;
+    font-size: 12px;
+}
+
+
+.order-t {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.search {
+    margin-top: 15px;
+}
+
+.input-search {
+    display: inline;
+    border-radius: 5px;
+
+    width: 75%;
+    height: 36px;
+
+    padding: 0px 10px;
+
+    border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.search {
+    margin: 0px 0px 25px 0px;
 }
