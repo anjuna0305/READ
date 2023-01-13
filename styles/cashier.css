@@ -1,0 +1,54 @@
+.container {
+    margin: 0px 70px;
+}
+
+
+
+/* -----------------------from login page----------------------- */
+.login-container {
+    margin-top: 2rem;
+    padding: 10px 20px 30px 20px;
+
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.login-container img {
+    width: 100%;
+    padding: 40px 100px;
+}
+
+.input-login {
+    display: block;
+    border-radius: 5px;
+
+    width: 100%;
+    height: 2.2rem;
+
+    margin: 4px 0px;
+    padding: 0px 10px;
+
+    border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.login-btn {
+    margin-top: 40px;
+}
+
+.itemdiv {
+    margin: 24px 0px;
+}
+
+.input-login-it {
+    display: block;
+    border-radius: 5px;
+
+    width: 100%;
+    height: 2.2rem;
+
+    margin: 4px 0px;
+    padding: 0px 10px;
+
+    border: 1px solid rgba(0, 0, 0, 0.4);
+}

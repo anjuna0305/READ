@@ -10,3 +10,7 @@
 
     --errorRed: #ac252f;
 }
+
+.txt-red {
+    color: var(--projectRed);
+}
