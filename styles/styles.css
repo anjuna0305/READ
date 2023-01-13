@@ -1,0 +1,5 @@
+@import "./main/autoload.css";
+
+* {
+    box-sizing: border-box;
+}

@@ -1,0 +1,12 @@
+:root {
+    --projectRed: #f1303b;
+    --redHover: #e02c35;
+
+    --projectBlack: #000;
+    --blackHover: #1D1D1D;
+
+    --projectGray: #DADADA;
+    --grayHover: #CACACA;
+
+    --errorRed: #ac252f;
+}

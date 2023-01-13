@@ -1,0 +1,11 @@
+.row-flex {
+    display: flex;
+}
+
+.al-center {
+    align-items: center;
+}
+
+.jf-center {
+    justify-content: center;
+}

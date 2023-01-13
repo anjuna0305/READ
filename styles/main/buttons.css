@@ -1,0 +1,169 @@
+:root {
+    /* --projectGreen: #98C03C; */
+    /* --projectPurple: #7681BF; */
+
+
+    --projectBlack: #000;
+    --blackHover: #1D1D1D;
+
+    --projectGrey: #DADADA;
+    --grayHover: #CACACA;
+
+    --errorRed: #ac252f;
+}
+
+
+/* ------------------- main button  -------------------*/
+.btn {
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn-sm {
+    height: 36px;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 0px 10px;
+}
+
+.btn-md {
+    height: 42px;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 20px;
+    padding: 0px 15px;
+}
+
+.btn-lg {
+    /* width: 600px; */
+    height: 52px;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 24px;
+    padding: 0px 20px;
+}
+
+/* ------------------- button styles  -------------------*/
+.btn-red {
+    background-color: var(--projectRed);
+}
+
+.btn-black {
+    background-color: var(--projectBlack);
+}
+
+.btn-gray {
+    background-color: var(--projectGrey);
+    color: black;
+}
+
+
+
+/* ------------------- button styles:hover -------------------*/
+.btn-red:hover {
+    background-color: var(--redHover);
+}
+
+.btn-black:hover {
+    background-color: var(--blackHover);
+}
+
+.btn-gray:hover {
+    background-color: var(--grayHover);
+}
+
+
+/* -------------------------other----------------------- */
+.linkButtonPurple {
+    background-color: transparent;
+    font-weight: 600;
+    color: var(--projectPurple);
+    font-size: 24px;
+    border: none;
+}
+
+.linkButtonPurple:hover {
+    text-decoration: underline;
+}
+
+.table_button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    animation: none;
+}
+
+.table_button:hover {
+    animation: none;
+    /* background-color: #F3F5FF; */
+    cursor: pointer;
+    border: 1px solid var(--projectPurple);
+}
+
+.table_button img {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+}
+
+.search_button_purple,
+.search_button_green {
+    height: 45px;
+    width: 60px;
+    padding: 0;
+
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.search_button_purple:hover {
+    background: #7681bfc2;
+    border: 0;
+}
+
+.search_button_green:hover {
+    background: #98c03cc7;
+    border: 0;
+}
+
+.search_button_green img,
+.search_button_purple img {
+    width: 30px;
+}
+
+/* .user_menu_button {
+    border: none;
+    font-weight: 400;
+    font-size: 16px;
+    width: 300px;
+    height: 30px;
+    padding: 100%;
+    /* background-color: #d9dfff; */
+/* background-color: #f2f4ff; */
+/* text-align: center; */
+/* } */
+
+.user_menu_button {
+    width: 250px;
+    height: 40px;
+    border-radius: 15px;
+    background-color: #d9dfff;
+    font-weight: 400;
+    color: var(--projectPurple);
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.user_menu_button:hover {
+    border: 1px solid var(--projectPurple);
+    background-color: white;
+}
