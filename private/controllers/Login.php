@@ -12,15 +12,16 @@ class Login extends Controller
 
 		if(count($_POST) > 0)
  		{
+ 			$errors['post']= $_POST;
 
  			$user = new User();
- 			if($row = $user->where('email',$_POST['email']))
+ 			if($row = $user->where('username',$_POST['username']))
  			{
  				$row = $row[0];
- 				if(password_verify($_POST['password'], $row->password))
+ 				if($_POST['password']==$row->password)
  				{
  					Auth::authenticate($row);
- 					$this->redirect('home');	
+ 					$this->redirect('cashiers');	
  				}
   			
  			}

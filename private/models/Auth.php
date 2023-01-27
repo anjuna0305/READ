@@ -9,7 +9,6 @@ class Auth
 	public static function authenticate($row)
 	{
 		// code...
-		session_start();
 		$_SESSION['USER'] = $row;
 	}
 

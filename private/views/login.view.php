@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<pre>
+<?=print_r($errors)?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,12 +14,13 @@
 </head>
 
 <body>
+   
     <div class="row-flex al-center jf-center">
         <div class="login-container">
             <img src="./Sources/index.png" alt="" srcset="">
-            <form action="">
-                <input class="input-login" type="text" name="" id="" placeholder="username">
-                <input class="input-login" type="password" name="" id="" placeholder="password">
+            <form method="post">
+                <input class="input-login" type="text" name="username" id="" placeholder="User Name">
+                <input class="input-login" type="password" name="password" id="" placeholder="password">
                 <button class="btn btn-sm btn-red btn-block login-btn" type="submit">Log in</button>
             </form>
         </div>

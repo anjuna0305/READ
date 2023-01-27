@@ -5,10 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="./styles/styles.css">
-    <link rel="stylesheet" href="./styles/cashier.css">
-    <link rel="stylesheet" href="./styles/navbar.css">
+    <title><?=ucfirst($_SESSION['USER']->username);?></title>
+    <link rel="stylesheet" href="<?=ROOT?>/styles/styles.css">
+    <link rel="stylesheet" href="<?=ROOT?>/styles/cashier.css">
+    <link rel="stylesheet" href="<?=ROOT?>/styles/navbar.css">
+
+    <style>
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
 </head>
 
 <header>
@@ -19,9 +26,11 @@
             </div>
         </div>
         <div class="right">
-            <div class="nav-i">
-                Log out
-            </div>
+            <a href="<?=ROOT?>/logout">
+                <div class="nav-i">
+                   Log out
+                </div>
+            </a>
         </div>
 
     </nav>
@@ -32,12 +41,12 @@
         <div class="col-lg-6">
             <div class="login-container">
                 <h1>New Order</h1>
-                <form action="">
+                <form method="post" action="<?=ROOT?>/cashiers/addorder">
                     <div class="row">
-                        <input class="input-login col-lg-6" type="number" name="billNumber" id=""
+                        <input class="input-login col-lg-6" type="number" name="bill_no" id=""
                             placeholder="Bill Number">
-                        <input class="input-login col-lg-6" type="date" name="billNumber" id=""
-                            placeholder="Bill Number">
+                        <input class="input-login col-lg-6" type="date" name="deliver_date" id=""
+                            placeholder="Deliver date">
                     </div>
 
                     <div class="row">
@@ -46,35 +55,45 @@
 
                     <div class="itemdiv">
                         <div class="row">
-                            <select class="input-login-it col-lg-8" name="" id="">
-                                <option value="">item1</option>
+                            <select class="input-login-it col-lg-8" name="item1" id="">
+                                <option value="ballo">ballo</option>
+                                <option value="harak">harak</option>
+                                <option value="kaputo">kaputo</option>
                             </select>
-                            <input class="input-login-it col-lg-4" type="number" name="" id="" placeholder="count">
+                            <input class="input-login-it col-lg-4" type="number" name="item1_count" value=0 id="" placeholder="count">
                         </div>
 
                         <div class="row">
-                            <select class="input-login-it col-lg-8" name="" id="">
-                                <option value="">item2</option>
+                            <select class="input-login-it col-lg-8" name="item2" id="">
+                                <option value="ballo">ballo</option>
+                                <option value="harak">harak</option>
+                                <option value="kaputo">kaputo</option>
                             </select>
-                            <input class="input-login-it col-lg-4" type="number" name="" id="" placeholder="count">
+                            <input class="input-login-it col-lg-4" type="number" name="item2_count" value=0 id="" placeholder="count">
                         </div>
 
                         <div class="row">
-                            <select class="input-login-it col-lg-8" name="" id="">
-                                <option value="">item3</option>
+                            <select class="input-login-it col-lg-8" name="item3" id="">
+                                <option value="ballo">ballo</option>
+                                <option value="harak">harak</option>
+                                <option value="kaputo">kaputo</option>
                             </select>
-                            <input class="input-login-it col-lg-4" type="number" name="" id="" placeholder="count">
+                            <input class="input-login-it col-lg-4" type="number" name="item3_count" value=0 id="" placeholder="count">
                         </div>
 
                     </div>
                     <div class="row">
-                        <input class="input-login col-lg-6" type="text" name="" id="" placeholder="Contact Number">
-                        <input class="input-login col-lg-3" type="number" name="" id="" placeholder="Book">
-                        <input class="input-login col-lg-3" type="number" name="" id="" placeholder="Page">
+                        <input class="input-login col-lg-6" type="number" name="price" id="" placeholder="Total">
+                        <input class="input-login col-lg-6" type="number" name="advanced" id="" placeholder="Advance">
                     </div>
 
-                    <button class="btn btn-sm btn-red btn-block login-btn" type="submit">Place
-                        Order</button>
+                    <div class="row">
+                        <input class="input-login col-lg-6" type="text" name="contact_no" id="" placeholder="Contact Number">
+                        <input class="input-login col-lg-3" type="number" name="book" id="" placeholder="Book">
+                        <input class="input-login col-lg-3" type="number" name="page" id="" placeholder="Page">
+                    </div>
+                
+                        <button class="btn btn-sm btn-red btn-block login-btn" type="submit" value="Create">Place Order</button>
                 </form>
             </div>
 
@@ -120,9 +139,11 @@
         <div class="col-lg-5">
             <div class="login-container">
                 <h2 class="todo-heading">Search</h2>
-                <form class="search" action="">
-                    <input class="input-search" type="text" name="" id="" placeholder="Bill No.">
-                    <button class="btn btn-sm btn-red" type="submit">Search</button>
+
+                <!-- search form -->
+                <form class="search" action="<?=ROOT?>/cashiers/searchorder" method="post">
+                    <input class="input-search" type="text" name="search_term" id="" placeholder="Bill No.">
+                    <button class="btn btn-sm btn-red" value="search" type="submit">Search</button>
                 </form>
 
                 <!-- search results -->

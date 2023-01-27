@@ -28,6 +28,40 @@ class Model extends Database
 		return $this->query($query);
 	}
 
+	public function insertInto($data,$table){
+		if(property_exists($this, 'allowedColumns'))
+		{
+			foreach($data as $key => $column)
+			{
+				if(!in_array($key, $this->allowedColumns))
+				{
+					unset($data[$key]);
+				}
+			}
+		}
+
+		print_r($data);
+
+
+		if(property_exists($this, 'beforeInsert'))
+		{
+			foreach($this->beforeInsert as $func)
+			{
+				$data=$this->$func($data);
+			}
+		}
+		echo "function called";
+
+		$keys = array_keys($data);
+		$columns = implode(',', $keys);
+		$values = implode(',:', $keys);
+
+		$query = "insert into $table ($columns) values (:$values)";
+		echo $query;
+
+		return $this->query($query, $data);
+	}
+
 	public function insert($data)
 	{
 		if(property_exists($this, 'allowedColumns'))
