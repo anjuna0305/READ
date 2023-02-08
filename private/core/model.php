@@ -40,9 +40,6 @@ class Model extends Database
 			}
 		}
 
-		print_r($data);
-
-
 		if(property_exists($this, 'beforeInsert'))
 		{
 			foreach($this->beforeInsert as $func)
@@ -50,7 +47,6 @@ class Model extends Database
 				$data=$this->$func($data);
 			}
 		}
-		echo "function called";
 
 		$keys = array_keys($data);
 		$columns = implode(',', $keys);

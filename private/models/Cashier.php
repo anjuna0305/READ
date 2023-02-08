@@ -12,75 +12,22 @@ class Cashier extends Model
     	'page',
 	];
 
-	public function insetItems($data){
-		if(property_exists($this, 'allowedColumns'))
-		{
-			foreach($data as $key => $column)
-			{
-				if(!in_array($key, $this->allowedColumns))
-				{
-					unset($data[$key]);
-				}
-			}
-		}
-
-		print_r($data);
-
-
-		if(property_exists($this, 'beforeInsert'))
-		{
-			foreach($this->beforeInsert as $func)
-			{
-				$data=$this->$func($data);
-			}
-		}
-
-		$keys = array_keys($data);
-		$columns = implode(',', $keys);
-		$values = implode(',:', $keys);
-
-		$query = "insert into orderitems ($columns) values (:$values)";
-		echo $query;
-
-		return $this->query($query, $data);
-	}
-
 	public function insetOrderItems($data){
-		$bill_no=$data['bill_no'];
+		$user=new Cashiers();
 
-		if(property_exists($this, 'allowedColumns'))
+		if(!$bill_no=$data['bill_no'])
 		{
-			foreach($data as $key => $column)
-			{
-				if(in_array($key, $this->allowedColumns))
-				{
-					unset($data[$key]);
-				}
-			}
+			$user->redirect('cashiers');
 		}
-
-		foreach($data as $key => $column)
-			{
-				if($data[$key]==0)
-				{
-					unset($data[$key]);
-				}
-			}
-
-		foreach($data as $key => $column)
-			{
-				if($data[$key]=="")
-				{
-					unset($data[$key]);
-				}
-			}
 
 		$valueStr = "";
 
+		// crating value string
 		for($x=1; $x<=3; $x++)
 		{
 			if(array_key_exists("item$x", $data) && array_key_exists("item$x"."_count", $data))
 				{
+					if($data["item$x"] != "" && $data["item$x"."_count"] != 0)
 					$valueStr .= "($bill_no,'" . $data["item$x"] . "',".$data["item$x"."_count"]."),";
 				}
 		}
@@ -92,18 +39,30 @@ class Cashier extends Model
 		if ($valueStr != "") 
 		{
 			$query = "insert into order_items ($columns) values $valueStr";
-			return $this->query($query);
-			// echo ($query);
+			$this->query($query);
+			return $user->redirect('cashiers');
 		}
 		else
 		{
-			echo "string";
+			echo "there is a error";
 		}
+	}
 
-		
+	public function searchFromTable($tableName,$data)
+	{
+		$user=new Cashiers();
 
-		
+		$this->table=$tableName;
+		$search_results = $this->where('bill_no',$data['search_term']);
+		return $search_results;
+	}
 
-		
+	public function searchOrderDetails($data)
+	{
+		$user=new Cashiers();
+
+		$this->table=$orders;
+		$search_results = $this->where('bill_no',$data['search_term']);
+		return $search_results;
 	}
 }

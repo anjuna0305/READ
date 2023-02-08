@@ -17,7 +17,9 @@ class Cashiers extends Controller
 		}
 		
 		$user=new Cashiers();
+		
 		$errors=array();
+		
 
 		// if(count($_POST)==1)
 		// {
@@ -31,21 +33,13 @@ class Cashiers extends Controller
 	}
 
 	public function addorder(){
-		// code..
-		// if(!Auth::logged_in())
-		// {
-		// 	$this->redirect('login');
-		// }
 		$user=new Cashier();
 
-		// $items=array();
-
-		// $user->insertInto($_POST,"orders");
+		$user->insertInto($_POST,"orders");
 		$user->insetOrderItems($_POST);
 
 		$errors=array();
 
-		// $errors['pakaya']="ballo maramu malli";
 		$this->view('cashier', ['errors' => $errors]);
 	}
 
@@ -55,8 +49,24 @@ class Cashiers extends Controller
 			$this->redirect('login');
 		}
 		$user=new Cashier();
-		$errors=array();
 
-		$this->view('cashier', ['errors' => $errors]);
+		$orders=array();
+		$order_items=array();
+
+		if(count($_POST)>0 && $_POST['search_term'] != '')
+		{
+			$orders= $user->searchFromTable('orders',$_POST);
+			$order_items= $user->searchFromTable('order_items',$_POST);
+		}
+
+		$errors=array();
+		unset($_POST);
+
+	
+		return $this->view('cashier', [
+			'orders' => $orders,
+			'order_items' => $order_items,
+			]);
+		
 	}
 }

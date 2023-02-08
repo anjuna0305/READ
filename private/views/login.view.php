@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<pre>
-<?=print_r($errors)?>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
