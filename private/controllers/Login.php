@@ -21,7 +21,12 @@ class Login extends Controller
  				if($_POST['password']==$row->password)
  				{
  					Auth::authenticate($row);
- 					$this->redirect('cashiers');	
+
+ 					if($row->usertype=='cashier'){
+ 						$this->redirect('cashiers');
+ 					}
+ 					elseif($row->usertype=='admin'){
+ 					}
  				}
   			
  			}

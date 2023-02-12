@@ -41,54 +41,116 @@
         <div class="col-lg-6">
             <div class="login-container">
                 <h1>New Order</h1>
-                <form method="post" action="<?= ROOT ?>/cashiers/addorder">
+                <!-- err -->
+                <div class="error-holder">
+                    <i class="fa-solid fa-triangle-exclamation exclanation_icon"></i>
+                    <div class="err_message inline">error message</div>
+                </div>
+                <!-- end : err -->
+
+
+                <!-- add order form -->
+                <form method="post" action="<?= ROOT ?>/cashiers/addorder" id="addorder_form">
+                    <!-- Bill no -->
                     <div class="row">
-                        <input class="input-login col-lg-6" type="number" name="bill_no" id="" placeholder="Bill Number">
-                        <input class="input-login col-lg-6" type="date" name="deliver_date" id="" placeholder="Deliver date">
+                        <div class="col-lg-6">
+                            <input class="input-login " type="number" name="bill_no" id="bill_no" placeholder="Bill Number">
+                            <div class="error-holder">
+                                <div class="err_message inline">error message</div>
+                            </div>
+                        </div>
+
+                        <!-- deliver_date -->
+                        <div class="col-lg-6">
+                            <input class="input-login " type="date" name="deliver_date" id="deliver_date" placeholder="Deliver date">
+                            <div class="error-holder">
+                                <div class="err_message inline">error message</div>
+                            </div>
+                        </div>
                     </div>
 
+                    <!-- name -->
                     <div class="row">
-                        <input class="input-login col-lg-12" type="text" name="" id="" placeholder="Name">
+                        <div class="col-lg-12">
+                            <input class="input-login" type="text" name="name" id="name" placeholder="Name">
+                            <div class="error-holder">
+                                <div class="err_message inline">error message</div>
+                            </div>
+                        </div>
                     </div>
 
+                    <!-- Items -->
                     <div class="itemdiv">
                         <div class="row">
-                            <select class="input-login-it col-lg-8" name="item1" id="">
+                            <select class="input-login-it col-lg-8" name="item1" id="item1">
                                 <option value="ballo">ballo</option>
                                 <option value="harak">harak</option>
                                 <option value="kaputo">kaputo</option>
                             </select>
-                            <input class="input-login-it col-lg-4" type="number" name="item1_count" value=0 id="" placeholder="count">
+                            <input class="input-login-it col-lg-4" type="number" name="item1_count" value=0 id="item1_count" placeholder="count">
                         </div>
 
                         <div class="row">
-                            <select class="input-login-it col-lg-8" name="item2" id="">
+                            <select class="input-login-it col-lg-8" name="item2" id="item2">
                                 <option value="ballo">ballo</option>
                                 <option value="harak">harak</option>
                                 <option value="kaputo">kaputo</option>
                             </select>
-                            <input class="input-login-it col-lg-4" type="number" name="item2_count" value=0 id="" placeholder="count">
+                            <input class="input-login-it col-lg-4" type="number" name="item2_count" value=0 id="item2_count" placeholder="count">
                         </div>
 
                         <div class="row">
-                            <select class="input-login-it col-lg-8" name="item3" id="">
+                            <select class="input-login-it col-lg-8" name="item3" id="item3">
                                 <option value="ballo">ballo</option>
                                 <option value="harak">harak</option>
                                 <option value="kaputo">kaputo</option>
                             </select>
-                            <input class="input-login-it col-lg-4" type="number" name="item3_count" value=0 id="" placeholder="count">
+                            <input class="input-login-it col-lg-4" type="number" name="item3_count" value=0 id="item3_count" placeholder="count">
+                        </div>
+                    </div>
+
+                    <!-- price -->
+                    <div class="row">
+                        <div class=" col-lg-6">
+                            <input class="input-login" type="number" name="price" id="price" placeholder="Total">
+                            <div class="error-holder">
+                                <div class="err_message inline">error message</div>
+                            </div>
                         </div>
 
-                    </div>
-                    <div class="row">
-                        <input class="input-login col-lg-6" type="number" name="price" id="" placeholder="Total">
-                        <input class="input-login col-lg-6" type="number" name="advanced" id="" placeholder="Advance">
+                        <!-- advanced -->
+                        <div class="col-lg-6">
+                            <input class="input-login col-lg-6" type="number" name="advanced" id="advanced" placeholder="Advance">
+                            <div class="error-holder">
+                                <div class="err_message inline">error message</div>
+                            </div>
+                        </div>
                     </div>
 
+                    <!-- Contact NO  -->
                     <div class="row">
-                        <input class="input-login col-lg-6" type="text" name="contact_no" id="" placeholder="Contact Number">
-                        <input class="input-login col-lg-3" type="number" name="book" id="" placeholder="Book">
-                        <input class="input-login col-lg-3" type="number" name="page" id="" placeholder="Page">
+                        <div class="col-lg-6">
+                            <input class="input-login" type="text" name="contact_no" id="contact_no" placeholder="Contact Number">
+                            <div class="error-holder">
+                                <div class="err_message inline">error message</div>
+                            </div>
+                        </div>
+
+                        <!-- book -->
+                        <div class="col-lg-3">
+                            <input class="input-login" type="number" name="book" id="book" placeholder="Book">
+                            <div class="error-holder">
+                                <div class="err_message inline">error message</div>
+                            </div>
+                        </div>
+
+                        <!-- page -->
+                        <div class="col-lg-3">
+                            <input class="input-login" type="number" name="page" id="page" placeholder="Page">
+                            <div class="error-holder">
+                                <div class="err_message inline">error message</div>
+                            </div>
+                        </div>
                     </div>
 
                     <button class="btn btn-sm btn-red btn-block login-btn" type="submit" value="Create">Place Order</button>
@@ -204,7 +266,11 @@
 
             <!-- to do list -->
             <div class="login-container">
-                <h2 class="todo-heading">Today orders</h2>
+                <h2 class="todo-heading col-lg-4">Orders</h2>
+                <form class="search row" action="<?= ROOT ?>/cashiers/searchorder" method="post">
+                    <input class="input-search todo-date col-lg-9" type="date" name="" id="">
+                    <button class="btn btn-sm btn-red col-lg-3" value="search" type="submit">Search</button>
+                </form>
 
                 <div class="row order-card">
                     <div class="order-t col-lg-3">20000450</div>
@@ -255,6 +321,73 @@
 
         </div>
     </div>
+
+    <script>
+        const addorder_form = document.getElementById('addorder_form');
+        console.log(addorder_form);
+
+        const bill_no = document.getElementById('bill_no')
+        const deliver_date = document.getElementById('deliver_date')
+        const item1 = document.getElementById('item1')
+        const item2 = document.getElementById('item2')
+        const item3 = document.getElementById('item3')
+        const item1_count = document.getElementById('item1_count')
+        const item2_count = document.getElementById('item2_count')
+        const item3_count = document.getElementById('item3_count')
+        const price = document.getElementById('price')
+        const name = document.getElementById('name')
+        const advanced = document.getElementById('advanced')
+        const contact_no = document.getElementById('contact_no')
+        const book = document.getElementById('book')
+        const page = document.getElementById('page')
+
+        addorder_form.addEventListener('submit', (event) => {
+            checkInputs(event);
+        });
+
+        function checkInputs(event) {
+            const bill_no_value = bill_no.value.trim();
+            const deliver_date_value = deliver_date.value.trim();
+            const item1_value = item1.value.trim();
+            const item2_value = item2.value.trim();
+            const item3_value = item3.value.trim();
+            const item1_count_value = item1_count.value.trim();
+            const item2_count_value = item2_count.value.trim();
+            const item3_count_value = item3_count.value.trim();
+            const price_value = price.value.trim();
+            const name_value = name.value.trim();
+            const advanced_value = advanced.value.trim();
+            const contact_no_value = contact_no.value.trim();
+            const book_value = book.value.trim();
+            const page_value = page.value.trim();
+
+            if (bill_no_value == '') {
+                displayErrorMessage(event, bill_no, "enter bill number");
+            } else {
+                offErrorMessage(bill_no);
+            }
+
+            if (deliver_date_value == '') {
+                displayErrorMessage(event, deliver_date, "select date");
+            } else {
+                offErrorMessage(deliver_date);
+            }
+
+            if (item1_value == '' && item2_value == '' && item3_value == '') {
+                displayErrorMessage(event, item1, "select item");
+            } else {
+                offErrorMessage(item1);
+            }
+
+            if (item1_value != '')
+
+                if (price_value == '') {
+                    displayErrorMessage(event, price, "enter price");
+                } else {
+                    offErrorMessage(price);
+                }
+        }
+    </script>
 </body>
 
 </html>

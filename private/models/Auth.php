@@ -54,27 +54,15 @@ class Auth
 		return 'Unknown';
 	}
 
-	public static function switch_school($id)
-	{
-		if(isset($_SESSION['USER']) && $_SESSION['USER']->rank == 'super_admin')
-		{
-			$user = new User();
-			$school = new School();
-
-			if($row = $school->where('id',$id))
-			{
-				$row = $row[0];
- 				$arr['school_id'] = $row->school_id;
-
-				$user->update($_SESSION['USER']->id,$arr);
- 				$_SESSION['USER']->school_id = $row->school_id;
-				$_SESSION['USER']->school_name = $row->school;
-
-			}
-			
-			return true;
-		}
-
-		return false;
-	}
+	public static function isuser($usertype){
+        if (Auth::logged_in()) {
+            if (Auth::getusertype()==$usertype) {
+                // echo ("called");
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
+    }
 }

@@ -36,6 +36,10 @@
     border: 1px solid rgba(0, 0, 0, 0.4);
 }
 
+.input-login.err{
+    border: 1px solid var(--errorRed);
+}
+
 .login-btn {
     margin-top: 40px;
 }
@@ -114,4 +118,48 @@ form {
 
 .search {
     margin: 0px 0px 25px 0px;
+}
+
+
+
+/* -----------------------error handling----------------------- */
+
+.err_message {
+    /* transform: translateX(-1000px); */
+    color: var(--errorRed);
+    margin-bottom: 15px;
+    margin-left: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    visibility: hidden;
+    visibility: visible;
+}
+
+.exclanation_icon {
+    /* transform: translateY(-20px); */
+    margin-left: 10px;
+    color: var(--errorRed);
+    visibility: hidden;
+    /* position: relative; */
+    /* right: 40px; */
+    /* top: 4px; */
+    visibility: visible;
+}
+
+.error-holder {
+    /* transform: translateY(-25px); */
+    /* position: absolute; */
+    display: none;
+}
+
+.error-holder.active {
+    display: contents;
+}
+
+.server_errors{
+    background-color: var(--errorRed);
+}
+
+.todo-date{
+    width: 100%;
 }
