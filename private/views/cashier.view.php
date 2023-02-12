@@ -82,12 +82,23 @@
                     <!-- Items -->
                     <div class="itemdiv">
                         <div class="row">
-                            <select class="input-login-it col-lg-8" name="item1" id="item1">
-                                <option value="ballo">ballo</option>
-                                <option value="harak">harak</option>
-                                <option value="kaputo">kaputo</option>
-                            </select>
-                            <input class="input-login-it col-lg-4" type="number" name="item1_count" value=0 id="item1_count" placeholder="count">
+                            <div class="col-lg-8">
+                                <select class="input-login-it" name="item1" id="item1">
+                                    <option value="ballo">ballo</option>
+                                    <option value="harak">harak</option>
+                                    <option value="kaputo">kaputo</option>
+                                </select>
+                                <div class="error-holder">
+                                    <div class="err_message inline">error message</div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <input class="input-login-it" type="number" name="item1_count" value=0 id="item1_count" placeholder="count">
+                                <div class="error-holder">
+                                    <div class="err_message inline">error message</div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="row">
@@ -379,13 +390,54 @@
                 offErrorMessage(item1);
             }
 
-            if (item1_value != '')
+            // item validate
+            if (item1_value != '' && item1_count_value == 0) {
+                displayErrorMessage(event, item1_count, "select item");
+            } else {
+                offErrorMessage(item1_count);
+            }
 
-                if (price_value == '') {
-                    displayErrorMessage(event, price, "enter price");
-                } else {
-                    offErrorMessage(price);
-                }
+            if (item2_value != '' && item2_count_value == 0) {
+                displayErrorMessage(event, item2_count, "select item");
+            } else {
+                offErrorMessage(item2_count);
+            }
+
+            if (item3_value != '' && item3_count_value == 0) {
+                displayErrorMessage(event, item3_count, "select item");
+            } else {
+                offErrorMessage(item3_count);
+            }
+            // item validate - END
+
+            if (price_value == '') {
+                displayErrorMessage(event, price, "enter price");
+            } else {
+                offErrorMessage(price);
+            }
+        }
+
+        // display error
+        function displayErrorMessage(event, id, message) {
+            const form_control = id.parentElement;
+
+            const err_div = form_control.querySelector('.error-holder');
+
+            const err_field = form_control.querySelector('.err_message');
+            // const err_icon = form_control.querySelector('.exclanation_icon');
+
+            err_div.classList.add('active');
+
+            err_field.innerText = message;
+
+            event.preventDefault();
+        }
+
+        function offErrorMessage(id) {
+            const form_control = id.parentElement;
+
+            const err_div = form_control.querySelector('.error-holder');
+            err_div.classList.remove('active');
         }
     </script>
 </body>
