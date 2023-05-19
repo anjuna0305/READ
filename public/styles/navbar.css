@@ -3,6 +3,30 @@ html {
     font-family: "Inter"
 }
 
+#notify_indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: red;
+    position: absolute;
+    top: 26px;
+    right: 0;
+}
+
+#notfication_div {
+    width: fit-content;
+    /* width: 100px; */
+    /* height: 150px; */
+    position: absolute;
+    top: 2.5rem;
+    right: 98px;
+    /* visibility: hidden; */
+}
+
+#notfication_div:hover{
+    color: black;
+}
+
 header {
     width: 100%;
     /* border-bottom: 1px solid black; */

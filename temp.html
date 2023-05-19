@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        /* Style the dropdown list */
+        #search-options {
+            position: absolute;
+            z-index: 1;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        /* Style the options in the dropdown list */
+        #search-options option {
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        /* Style the selected option in the dropdown list */
+        #search-options option:checked {
+            background-color: #ddd;
+        }
+    </style>
+
+    <label for="search">Search:</label>
+    <input type="text" name="search" id="search" list="search-options" autocomplete="off">
+    <datalist id="search-options">
+        <option value="Books">
+        <option value="Movies">
+        <option value="Music">
+        <option value="Games">
+    </datalist>
+
+</body>
+
+</html>

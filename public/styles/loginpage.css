@@ -30,3 +30,12 @@
 .login-btn {
     margin-top: 20px;
 }
+
+.error_div{
+    width: 100%;
+    color: white;
+    font-size: 1rem;
+    background-color: var(--projectRed);
+    padding: 5px;
+    margin: 5px 0px 10px 0px;
+}

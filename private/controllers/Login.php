@@ -12,8 +12,6 @@ class Login extends Controller
 
 		if(count($_POST) > 0)
  		{
- 			$errors['post']= $_POST;
-
  			$user = new User();
  			if($row = $user->where('username',$_POST['username']))
  			{
@@ -28,10 +26,9 @@ class Login extends Controller
  					elseif($row->usertype=='admin'){
  					}
  				}
-  			
  			}
   			
-  			$errors['email'] = "Wrong email or password";
+  			$errors[] = "Wrong username or password";
 
  		}
 

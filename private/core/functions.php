@@ -26,3 +26,16 @@ function esc($var)
 {
     return htmlspecialchars($var);
 }
+
+function get_var_post($form_name, $key)
+{
+    if (isset($_POST['form_name'])) {
+        if ($_POST['form_name'] == $form_name) {
+            if (isset($_POST[$key])) {
+                return $_POST[$key];
+            }
+        }
+    }
+
+    return "";
+}

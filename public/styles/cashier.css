@@ -28,7 +28,7 @@
     border-radius: 5px;
 
     width: 100%;
-    height: 2.2rem;
+    height: 2.6rem;
 
     margin: 4px 0px;
     padding: 0px 10px;
@@ -74,30 +74,30 @@ form {
 }
 
 .order-card {
-    background-color: #f9f9f9;
-    padding: 8px 0px 8px 15px;
+    background-color: white;
+    padding: 8px 15px 8px 15px;
     margin: 12px 0px;
     border: 1px solid rgba(0, 0, 0, 0.6);
     border-radius: 5px;
 }
 
 .card-t {
-    margin-top: 16px;
-    font-weight: 600;
-    font-size: 12px;
+    margin-top: 12px;
+    font-weight: 500;
+    /* font-size: 10px; */
     text-align: left;
 }
 
 .card-d {
-    margin-top: 16px;
+    margin-top: 12px;
     min-width: 42px;
-    font-size: 12px;
+    /* font-size: 10px; */
 }
 
 
 .order-t {
-    font-size: 16px;
-    font-weight: 600;
+    /* font-size: 12px; */
+    font-weight: 500;
 }
 
 .search {
@@ -128,21 +128,10 @@ form {
     /* transform: translateX(-1000px); */
     color: var(--errorRed);
     margin-bottom: 15px;
-    margin-left: 15px;
+    margin-left: 5px;
     font-size: 12px;
     font-weight: 600;
     visibility: hidden;
-    visibility: visible;
-}
-
-.exclanation_icon {
-    /* transform: translateY(-20px); */
-    margin-left: 10px;
-    color: var(--errorRed);
-    visibility: hidden;
-    /* position: relative; */
-    /* right: 40px; */
-    /* top: 4px; */
     visibility: visible;
 }
 
@@ -162,4 +151,31 @@ form {
 
 .todo-date{
     width: 100%;
+}
+
+.labels{
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 0.8rem;
+    margin-left: 15px;
+    position: absolute;
+    transform: translateY(-3px);
+    padding: 0px 8px 0px 8px;
+    background-color: white;
+
+    font-weight: 700;
+}
+
+.sp-1{
+    margin-top: 5px;
+}
+
+.crud-btn-holder{
+    margin-top: 10px;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    align-items: right;
+}
+
+.del{
+    margin-right: 20px;
 }

@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="<?= ROOT ?>/styles/styles.css">
     <link rel="stylesheet" href="<?= ROOT ?>/styles/cashier.css">
     <link rel="stylesheet" href="<?= ROOT ?>/styles/navbar.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/styles/template.css">
+    <script src="https://kit.fontawesome.com/1a2c8fa8df.js" crossorigin="anonymous"></script>
 
     <style>
         a {
@@ -27,25 +29,58 @@
         </div>
         <div class="right">
             <a href="<?= ROOT ?>/logout">
+                <div class="nav-i" style="position: relative;">
+                    <i class="fa-regular fa-bell"></i>
+                    <div id="notify_indicator" style="font-size: 6px; text-align:center;color:white;">1</div>
+                </div>
+            </a>
+            <a href="<?= ROOT ?>/logout">
                 <div class="nav-i">
                     Log out
                 </div>
             </a>
         </div>
-
     </nav>
 </header>
 
 <body>
+    <!-- notification bar -->
+    <div id="notfication_div" style="width:375px;">
+        <div class="row order-card">
+            <div class="order-t col-12 txt-10">20000450</div>
+
+            <div class="col-12" style="border-top:1px solid red;margin:5px 0px 5px 0px;"></div>
+
+            <div class="col-12 row" style="display:flex; justify-content:center; margin:10px; border:1px solid rgba(0,0,0,0.2); padding:15px;">
+                <div class="order-t col-12 txt-08">magic mug x 12</div>
+                <div class="order-t col-12 txt-08">magic mug x 12</div>
+            </div>
+
+            <div class="card-t col-3 txt-08">Contact No.</div>
+            <div class="card-d col-3 txt-08">0768150618</div>
+
+            <div class="blank col-1 txt-08"></div>
+
+            <div class="card-t col-3 txt-08">Book/Page</div>
+            <div class="card-d col-2 txt-08">23/265</div>
+
+            <div class="card-t col-3 txt-08">Deliver Date</div>
+            <div class="card-d col-3 txt-08">10/11/2023</div>
+        </div>
+    </div>
+    <!-- notification bar:END -->
+
+
     <div class="container row">
         <div class="col-lg-6">
             <div class="login-container">
                 <h1>New Order</h1>
                 <!-- err -->
-                <div class="error-holder">
-                    <i class="fa-solid fa-triangle-exclamation exclanation_icon"></i>
-                    <div class="err_message inline">error message</div>
-                </div>
+                <?php if (isset($errors[0])) : ?>
+                    <div class="" style="background-color: <?= $errors['back-color'] ?>; padding:3px; color:white;">
+                        <?= $errors[0] ?>
+                    </div>
+                <?php endif; ?>
                 <!-- end : err -->
 
 
@@ -53,16 +88,18 @@
                 <form method="post" action="<?= ROOT ?>/cashiers/addorder" id="addorder_form">
                     <!-- Bill no -->
                     <div class="row">
-                        <div class="col-lg-6">
-                            <input class="input-login " type="number" name="bill_no" id="bill_no" placeholder="Bill Number">
+                        <div class="col-lg-6 sp-1">
+                            <label class="labels" for="">Bill Number</label>
+                            <input class="input-login " type="number" name="bill_no" id="bill_no" value="<?= get_var_post("new_order", "bill_no") ?>">
                             <div class="error-holder">
                                 <div class="err_message inline">error message</div>
                             </div>
                         </div>
 
                         <!-- deliver_date -->
-                        <div class="col-lg-6">
-                            <input class="input-login " type="date" name="deliver_date" id="deliver_date" placeholder="Deliver date">
+                        <div class="col-lg-6 sp-1">
+                            <label class="labels" for="">Deliver Date</label>
+                            <input class="input-login " type="date" name="deliver_date" id="deliver_date">
                             <div class="error-holder">
                                 <div class="err_message inline">error message</div>
                             </div>
@@ -71,8 +108,9 @@
 
                     <!-- name -->
                     <div class="row">
-                        <div class="col-lg-12">
-                            <input class="input-login" type="text" name="name" id="name" placeholder="Name">
+                        <div class="col-lg-12 sp-1">
+                            <label class="labels" for="name">Name</label>
+                            <input class="input-login" type="text" name="name" id="name" value="<?= get_var_post("new_order", "name") ?>">
                             <div class="error-holder">
                                 <div class="err_message inline">error message</div>
                             </div>
@@ -122,16 +160,18 @@
 
                     <!-- price -->
                     <div class="row">
-                        <div class=" col-lg-6">
-                            <input class="input-login" type="number" name="price" id="price" placeholder="Total">
+                        <div class=" col-lg-6 sp-1">
+                            <label class="labels" for="">Total</label>
+                            <input class="input-login" type="number" name="price" id="price" value="<?= get_var_post("new_order", "price") ?>">
                             <div class="error-holder">
                                 <div class="err_message inline">error message</div>
                             </div>
                         </div>
 
                         <!-- advanced -->
-                        <div class="col-lg-6">
-                            <input class="input-login col-lg-6" type="number" name="advanced" id="advanced" placeholder="Advance">
+                        <div class="col-lg-6 sp-1">
+                            <label class="labels" for="">Advance</label>
+                            <input class="input-login col-lg-6" type="number" name="advanced" id="advanced" value="<?= get_var_post("new_order", "advanced") ?>">
                             <div class="error-holder">
                                 <div class="err_message inline">error message</div>
                             </div>
@@ -140,31 +180,34 @@
 
                     <!-- Contact NO  -->
                     <div class="row">
-                        <div class="col-lg-6">
-                            <input class="input-login" type="text" name="contact_no" id="contact_no" placeholder="Contact Number">
+                        <div class="col-lg-6 sp-1">
+                            <label class="labels" for="">Contact no.</label>
+                            <input class="input-login" type="text" name="contact_no" id="contact_no" value="<?= get_var_post("new_order", "contact_no") ?>">
                             <div class="error-holder">
                                 <div class="err_message inline">error message</div>
                             </div>
                         </div>
 
                         <!-- book -->
-                        <div class="col-lg-3">
-                            <input class="input-login" type="number" name="book" id="book" placeholder="Book">
+                        <div class="col-lg-3 sp-1">
+                            <label class="labels" for="">Book no.</label>
+                            <input class="input-login" type="number" name="book" id="book" value="<?= get_var_post("new_order", "book") ?>">
                             <div class="error-holder">
                                 <div class="err_message inline">error message</div>
                             </div>
                         </div>
 
                         <!-- page -->
-                        <div class="col-lg-3">
-                            <input class="input-login" type="number" name="page" id="page" placeholder="Page">
+                        <div class="col-lg-3 sp-1">
+                            <label class="labels" for="">Page no.</label>
+                            <input class="input-login" type="number" name="page" id="page" value="<?= get_var_post("new_order", "page") ?>">
                             <div class="error-holder">
                                 <div class="err_message inline">error message</div>
                             </div>
                         </div>
                     </div>
 
-                    <button class="btn btn-sm btn-red btn-block login-btn" type="submit" value="Create">Place Order</button>
+                    <button class="btn btn-sm btn-red btn-block login-btn" type="submit" name="form_name" value="new_order">Place Order</button>
                 </form>
             </div>
 
@@ -255,6 +298,14 @@
 
                                 <div class="card-t col-lg-3">Book/Page</div>
                                 <div class="card-d col-lg-2">23/265</div>
+                                <div class="crud-btn-holder blank col-lg-12">
+                                    <a href="">
+                                        <button class="btn btn-blue btn-xsm del">Update</button>
+                                    </a>
+                                    <a href="">
+                                        <button class="btn btn-red btn-xsm">Delete</button>
+                                    </a>
+                                </div>
                             <?php else : ?>
                                 <h4 class="col-lg-12">No result</h4>
                             <?php endif; ?>
@@ -384,32 +435,31 @@
                 offErrorMessage(deliver_date);
             }
 
-            if (item1_value == '' && item2_value == '' && item3_value == '') {
-                displayErrorMessage(event, item1, "select item");
-            } else {
-                offErrorMessage(item1);
-            }
+            // if (item1_value == '' && item2_value == '' && item3_value == '') {
+            //     displayErrorMessage(event, item1, "select item");
+            // } else {
+            //     offErrorMessage(item1);
+            // }
 
             // item validate
-            if (item1_value != '' && item1_count_value == 0) {
-                displayErrorMessage(event, item1_count, "select item");
-            } else {
-                offErrorMessage(item1_count);
-            }
+            // if (item1_value != '' && item1_count_value == 0) {
+            //     displayErrorMessage(event, item1_count, "select item");
+            // } else {
+            //     offErrorMessage(item1_count);
+            // }
 
-            if (item2_value != '' && item2_count_value == 0) {
-                displayErrorMessage(event, item2_count, "select item");
-            } else {
-                offErrorMessage(item2_count);
-            }
+            // if (item2_value != '' && item2_count_value == 0) {
+            //     displayErrorMessage(event, item2_count, "select item");
+            // } else {
+            //     offErrorMessage(item2_count);
+            // }
 
-            if (item3_value != '' && item3_count_value == 0) {
-                displayErrorMessage(event, item3_count, "select item");
-            } else {
-                offErrorMessage(item3_count);
-            }
+            // if (item3_value != '' && item3_count_value == 0) {
+            //     displayErrorMessage(event, item3_count, "select item");
+            // } else {
+            //     offErrorMessage(item3_count);
+            // }
             // item validate - END
-
             if (price_value == '') {
                 displayErrorMessage(event, price, "enter price");
             } else {
@@ -424,11 +474,13 @@
             const err_div = form_control.querySelector('.error-holder');
 
             const err_field = form_control.querySelector('.err_message');
+            const input_field = form_control.querySelector(".input-login");
             // const err_icon = form_control.querySelector('.exclanation_icon');
 
             err_div.classList.add('active');
+            input_field.classList.add('err');
 
-            err_field.innerText = message;
+            err_field.innerText = '* ' + message;
 
             event.preventDefault();
         }
@@ -437,7 +489,10 @@
             const form_control = id.parentElement;
 
             const err_div = form_control.querySelector('.error-holder');
+            const input_field = form_control.querySelector(".input-login");
+
             err_div.classList.remove('active');
+            input_field.classList.remove('err');
         }
     </script>
 </body>

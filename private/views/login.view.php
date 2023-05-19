@@ -11,10 +11,19 @@
 </head>
 
 <body>
-   
+
     <div class="row-flex al-center jf-center">
         <div class="login-container">
             <img src="./Sources/index.png" alt="" srcset="">
+            <?php if (isset($errors)) : ?>
+                <?php if (count($errors) > 0) : ?>
+                    <div class="error_div">
+                        <?php foreach ($errors as $error) : ?>
+                            * <?= $error ?>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+            <?php endif; ?>
             <form method="post">
                 <input class="input-login" type="text" name="username" id="" placeholder="User Name">
                 <input class="input-login" type="password" name="password" id="" placeholder="password">
